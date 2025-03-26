@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Help Desk System{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #f5f5f5; /* Light background for a clean look */
+            color: #333; /* Text color for better readability */
+        }
+        .navbar {
+            background-color: #004d26; /* Dark green color for navbar */
+        }
+        .navbar-brand, .nav-link {
+            color: #fff !important; /* White color for navbar text */
+        }
+        .nav-link {
+            margin-right: 20px;
+        }
+        .navbar-brand:hover, .nav-link:hover {
+            color: #c7ffc7 !important; /* Light green hover effect */
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+        .btn-custom:hover {
+            background-color: black;
+        }
+        .btn-outline-primary {
+            border-color: #007bff;
+            color: #007bff;
+        }
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .hero-section {
+            background: url('/static/images/getstarted.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            height: 70vh; /* Adjusted height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 77, 38, 0.7); /* Dark green overlay */
+            z-index: 1;
+        }
+        .feature-box {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+        .feature-box:hover {
+            box-shadow: 0 4px 20px rgba(0, 77, 38, 0.2); /* Subtle green shadow */
+        }
+        .login-container {
+            background-color: #ffffff; /* Clean white background */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 77, 38, 0.1); /* Green shadow */
+            max-width: 400px;
+            margin: 50px auto; /* Added margin for spacing */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">DILLA UNIVERSITY - Help Desk System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-item nav-link btn btn-danger" href="{% url 'logout' %}">Log out <i class="fas fa-sign-out-alt"></i></a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-custom" href="{% url 'login' %}">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary" href="{% url 'register' %}">Sign Up</a>
+                    </li>
+                {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    {% include 'include/messaging.html' %}
+    {% block content %}
+    {% endblock %}
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
