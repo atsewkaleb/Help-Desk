@@ -1,3 +1,24 @@
+Project Title: Help Desk System for DUICT
+Why this Title: The title "Help Desk System" was chosen because the system aims to simplify and streamline the process of requesting and managing ICT support services within Dilla University. The current manual system, which involves paperwork and in-person visits to the ICT office, is inefficient and often leads to delays and confusion. This system will digitize the process, making it easier for departments to request assistance and for the ICT team to manage and track requests.
+
+Stakeholders (Actors):
+•	ICT Director: Oversees the entire process and assigns requests to appropriate team leaders.
+•	Team Leaders: Assign specific tasks to staff members and ensure timely resolution.
+•	Staff: Handle technical issues and report on their status.
+•	Clients (Departments and Offices): Submit requests for ICT services.
+
+Programming Tools:
+•	Backend: Django (Python) for managing data, workflows, and user roles.
+•	Frontend: HTML, Bootstrap, and CSS for designing the user interface.
+
+Basic Functionalities:
+•	Users (clients) can submit service requests online.
+•	Requests are forwarded to the ICT Director for approval and assignment.
+•	The Director assigns tasks to the appropriate team leader.
+•	Team leaders allocate tasks to staff members.
+•	Staff members resolve issues and provide status updates.
+•	Clients can confirm whether the problem is resolved. 
+
 SYSTEM DESIGN
 IMG 1. Homepage of the Help Desk website 
  ![homepage](https://github.com/user-attachments/assets/b975816c-bc35-4d47-aa65-a2dd143e3f23)
